@@ -14,9 +14,11 @@ const makeSut = ({ color = 'white' }: LogoProps = {}): RenderResult => {
 }
 
 describe('<Logo />', () => {
-  test('should render correctly', () => {
+  test('should render with correct initial state', () => {
     const { container } = makeSut()
-    expect(screen.getByTestId('logo')).toBeInTheDocument()
+    const logo = screen.getByTestId('logo')
+    expect(logo).toBeInTheDocument()
+    expect(screen.getByTestId('logo')).toHaveStyleRule('color', theme.colors.white)
     expect(container.firstChild).toMatchSnapshot()
   })
 
