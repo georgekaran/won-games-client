@@ -2,11 +2,12 @@
 
 exports[`<Logo /> should render correctly 1`] = `
 .c0 {
-  color: #030517;
+  color: #FAFAFA;
 }
 
 <main
   class="c0"
+  color="white"
   data-testid="logo"
 >
   <svg
