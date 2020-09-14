@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Logo /> should render with correct initial state 1`] = `
+exports['<Logo /> should render with correct initial state 1'] = `
 .c0 {
   color: #FAFAFA;
 }
@@ -91,4 +91,4 @@ exports[`<Logo /> should render with correct initial state 1`] = `
     </defs>
   </svg>
 </div>
-`;
+`
