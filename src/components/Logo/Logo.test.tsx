@@ -6,8 +6,8 @@ import Logo, { LogoProps } from './Logo'
 import { renderWithTheme } from '@/test/helpers'
 import theme from '@/styles/theme'
 
-const makeSut = ({ color = 'white' }: LogoProps = {}): RenderResult => {
-  return renderWithTheme(<Logo color={color} />)
+const makeSut = ({ color = 'white', size = 'normal' }: LogoProps = {}): RenderResult => {
+  return renderWithTheme(<Logo color={color} size={size} />)
 }
 
 describe('<Logo />', () => {
@@ -16,6 +16,8 @@ describe('<Logo />', () => {
     const logo = screen.getByTestId('logo')
     expect(logo).toBeInTheDocument()
     expect(logo).toHaveStyleRule('color', theme.colors.white)
+    expect(logo).toHaveStyleRule('width', '11rem')
+    expect(logo).toHaveStyleRule('height', '3.3rem')
     expect(logo.firstChild).toHaveAttribute('role', 'img')
     expect(logo.firstChild).toHaveAttribute('aria-label', 'Won Games')
     expect(container.firstChild).toMatchSnapshot()
@@ -25,5 +27,12 @@ describe('<Logo />', () => {
     const color = faker.random.arrayElement<'white' | 'black'>(['white', 'black'])
     makeSut({ color })
     expect(screen.getByTestId('logo')).toHaveStyleRule('color', theme.colors[color])
+  })
+
+  test('should render a bigger Logo when size large is provided', () => {
+    makeSut({ size: 'large' })
+    const logo = screen.getByTestId('logo')
+    expect(logo).toHaveStyleRule('width', '20rem')
+    expect(logo).toHaveStyleRule('height', '5.9rem')
   })
 })

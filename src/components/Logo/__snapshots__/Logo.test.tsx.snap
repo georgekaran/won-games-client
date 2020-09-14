@@ -3,6 +3,8 @@
 exports['<Logo /> should render with correct initial state 1'] = `
 .c0 {
   color: #FAFAFA;
+  width: 11rem;
+  height: 3.3rem;
 }
 
 <div
