@@ -1,16 +1,12 @@
 import React from 'react'
-import { render, RenderResult, screen } from '@testing-library/react'
-import { ThemeProvider } from 'styled-components'
+import { RenderResult, screen } from '@testing-library/react'
 
 import Logo, { LogoProps } from './Logo'
+import { renderWithTheme } from '@/test/helpers'
 import theme from '@/styles/theme'
 
 const makeSut = ({ color = 'white' }: LogoProps = {}): RenderResult => {
-  return render(
-    <ThemeProvider theme={theme}>
-      <Logo color={color} />
-    </ThemeProvider>
-  )
+  return renderWithTheme(<Logo color={color} />)
 }
 
 describe('<Logo />', () => {
