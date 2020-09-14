@@ -1,13 +1,11 @@
+import React from 'react'
 import { render, screen } from '@testing-library/react'
 
 import {{pascalCase name}} from './{{pascalCase name}}'
 
 describe('<{{pascalCase name}} />', () => {
-  it('should render the heading', () => {
+  it('should render with initial state', () => {
     const { container } = render(<{{pascalCase name}} />)
-
-    expect(screen.getByRole('heading', { name: /{{pascalCase name}}/i })).toBeInTheDocument()
-
     expect(container.firstChild).toMatchSnapshot()
   })
 })
