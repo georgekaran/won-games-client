@@ -1,13 +1,14 @@
 import React from 'react'
 import { RenderResult, screen } from '@testing-library/react'
 import faker from 'faker'
+import 'jest-styled-components'
 
 import Logo, { LogoProps } from './Logo'
 import { renderWithTheme } from '@/test/helpers'
 import theme from '@/styles/theme'
 
-const makeSut = ({ color = 'white', size = 'normal' }: LogoProps = {}): RenderResult => {
-  return renderWithTheme(<Logo color={color} size={size} />)
+const makeSut = ({ color = 'white', size = 'normal', hideOnMobile = false }: LogoProps = {}): RenderResult => {
+  return renderWithTheme(<Logo color={color} size={size} hideOnMobile={hideOnMobile} />)
 }
 
 describe('<Logo />', () => {
@@ -34,5 +35,16 @@ describe('<Logo />', () => {
     const logo = screen.getByTestId('logo')
     expect(logo).toHaveStyleRule('width', '20rem')
     expect(logo).toHaveStyleRule('height', '5.9rem')
+  })
+
+  test('should hide text if hideOnMobile is true', () => {
+    makeSut({ hideOnMobile: true })
+    expect(screen.getByTestId('logo')).toHaveStyleRule(
+      'width',
+      '5.8rem',
+      {
+        media: '(max-width: 768px)'
+      }
+    )
   })
 })
