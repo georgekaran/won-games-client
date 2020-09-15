@@ -29,4 +29,13 @@ describe('<Button />', () => {
     expect(button).toHaveStyleRule('font-size', theme.font.sizes.xsmall)
     expect(button).toHaveStyleRule('padding', theme.spacings.xxsmall)
   })
+
+  test('should Button render large if large size is provided', () => {
+    const { container } = makeSut({ size: 'large' })
+    expect(container.firstChild).toMatchSnapshot()
+    const button = screen.getByRole('button', { name: /Button/ })
+    expect(button).toHaveStyleRule('height', '5rem')
+    expect(button).toHaveStyleRule('font-size', theme.font.sizes.medium)
+    expect(button).toHaveStyleRule('padding', `${theme.spacings.xxsmall} ${theme.spacings.xlarge}`)
+  })
 })
