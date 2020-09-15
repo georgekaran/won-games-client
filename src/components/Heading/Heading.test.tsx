@@ -5,8 +5,8 @@ import Heading, { HeadingProps } from './Heading'
 import { renderWithTheme } from '@/test/helpers'
 import theme from '@/styles/theme'
 
-const makeSut = ({ children, color = 'white', lineLeft = false }: HeadingProps): RenderResult => {
-  return renderWithTheme(<Heading color={color} lineLeft={lineLeft}>{children}</Heading>)
+const makeSut = ({ children, color = 'white', lineLeft = false, lineBottom = false }: HeadingProps): RenderResult => {
+  return renderWithTheme(<Heading color={color} lineLeft={lineLeft} lineBottom={lineBottom}>{children}</Heading>)
 }
 
 describe('<Heading />', () => {
@@ -30,5 +30,17 @@ describe('<Heading />', () => {
     const heading = screen.getByRole('heading', { name: /Random Heading/ })
     expect(heading).toHaveStyleRule('padding-left', theme.spacings.xxsmall)
     expect(heading).toHaveStyleRule('border-left', `0.7rem solid ${theme.colors.secondary}`)
+  })
+
+  test('should present a line in the bottom if lineBottom is true', () => {
+    makeSut({ children: 'Random Heading', lineBottom: true })
+    const heading = screen.getByRole('heading', { name: /Random Heading/ })
+    expect(heading).toHaveStyleRule('margin-bottom', theme.spacings.medium)
+    expect(heading).toHaveStyleRule(
+      'background-color',
+      `${theme.colors.primary}`, {
+        modifier: '::after'
+      }
+    )
   })
 })
