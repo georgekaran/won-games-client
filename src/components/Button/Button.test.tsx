@@ -5,10 +5,10 @@ import Button, { ButtonProps } from './Button'
 import { renderWithTheme } from '@/test/helpers'
 import theme from '@/styles/theme'
 
-type SutProps = Pick<ButtonProps, 'size'>
+type SutProps = Pick<ButtonProps, 'size' | 'fullWidth'>
 
-const makeSut = ({ size = 'medium' }: SutProps = {}): RenderResult => {
-  return renderWithTheme(<Button size={size}>Button</Button>)
+const makeSut = ({ size = 'medium', fullWidth = false }: SutProps = {}): RenderResult => {
+  return renderWithTheme(<Button size={size} fullWidth={fullWidth}>Button</Button>)
 }
 
 describe('<Button />', () => {
@@ -37,5 +37,12 @@ describe('<Button />', () => {
     expect(button).toHaveStyleRule('height', '5rem')
     expect(button).toHaveStyleRule('font-size', theme.font.sizes.medium)
     expect(button).toHaveStyleRule('padding', `${theme.spacings.xxsmall} ${theme.spacings.xlarge}`)
+  })
+
+  test('should render fullWidth if prop is provided', () => {
+    const { container } = makeSut({ fullWidth: true })
+    expect(container.firstChild).toMatchSnapshot()
+    const button = screen.getByRole('button', { name: /Button/ })
+    expect(button).toHaveStyleRule('width', '100%')
   })
 })
