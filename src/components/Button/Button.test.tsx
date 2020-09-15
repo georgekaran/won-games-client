@@ -21,7 +21,7 @@ describe('<Button />', () => {
     expect(button).toHaveStyleRule('padding', `${theme.spacings.xxsmall} ${theme.spacings.medium}`)
   })
 
-  test('should Button render small if small size is provided', () => {
+  test('should render small if small size is provided', () => {
     const { container } = makeSut({ size: 'small' })
     expect(container.firstChild).toMatchSnapshot()
     const button = screen.getByRole('button', { name: /Button/ })
@@ -30,7 +30,7 @@ describe('<Button />', () => {
     expect(button).toHaveStyleRule('padding', theme.spacings.xxsmall)
   })
 
-  test('should Button render large if large size is provided', () => {
+  test('should render large if large size is provided', () => {
     const { container } = makeSut({ size: 'large' })
     expect(container.firstChild).toMatchSnapshot()
     const button = screen.getByRole('button', { name: /Button/ })
