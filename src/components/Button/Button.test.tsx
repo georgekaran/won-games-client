@@ -23,8 +23,7 @@ describe('<Button />', () => {
   })
 
   test('should render small if small size is provided', () => {
-    const { container } = makeSut({ size: 'small' })
-    expect(container.firstChild).toMatchSnapshot()
+    makeSut({ size: 'small' })
     const button = screen.getByRole('button', { name: /Button/ })
     expect(button).toHaveStyleRule('height', '3rem')
     expect(button).toHaveStyleRule('font-size', theme.font.sizes.xsmall)
@@ -32,8 +31,7 @@ describe('<Button />', () => {
   })
 
   test('should render large if large size is provided', () => {
-    const { container } = makeSut({ size: 'large' })
-    expect(container.firstChild).toMatchSnapshot()
+    makeSut({ size: 'large' })
     const button = screen.getByRole('button', { name: /Button/ })
     expect(button).toHaveStyleRule('height', '5rem')
     expect(button).toHaveStyleRule('font-size', theme.font.sizes.medium)
@@ -41,8 +39,7 @@ describe('<Button />', () => {
   })
 
   test('should render fullWidth if prop is provided', () => {
-    const { container } = makeSut({ fullWidth: true })
-    expect(container.firstChild).toMatchSnapshot()
+    makeSut({ fullWidth: true })
     const button = screen.getByRole('button', { name: /Button/ })
     expect(button).toHaveStyleRule('width', '100%')
   })
