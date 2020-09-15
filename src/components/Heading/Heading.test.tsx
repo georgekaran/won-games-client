@@ -1,12 +1,16 @@
 import React from 'react'
-import { screen } from '@testing-library/react'
+import { RenderResult, screen } from '@testing-library/react'
 
-import Heading from './Heading'
+import Heading, { HeadingProps } from './Heading'
 import { renderWithTheme } from '@/test/helpers'
+
+const makeSut = ({ children = 'Random Heading' }: HeadingProps = { children: 'Random Heading' }): RenderResult => {
+  return renderWithTheme(<Heading>{children}</Heading>)
+}
 
 describe('<Heading />', () => {
   test('should render with initial state', () => {
-    const { container } = renderWithTheme(<Heading>Random Heading</Heading>)
+    const { container } = makeSut()
     const heading = screen.getByRole('heading', { name: /Random Heading/ })
     expect(heading).toBeInTheDocument()
     expect(heading).toHaveStyleRule('color', '#FAFAFA')
