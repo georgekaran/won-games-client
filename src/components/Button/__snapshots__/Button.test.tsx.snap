@@ -7,6 +7,7 @@ exports['<Button /> should render fullWidth if prop is provided 1'] = `
   border: none;
   border-radius: 0.4rem;
   padding: 0.8rem;
+  cursor: pointer;
   height: 4rem;
   font-size: 1.4rem;
   padding: 0.8rem 3.2rem;
@@ -29,6 +30,7 @@ exports['<Button /> should render large if large size is provided 1'] = `
   border: none;
   border-radius: 0.4rem;
   padding: 0.8rem;
+  cursor: pointer;
   height: 5rem;
   font-size: 1.6rem;
   padding: 0.8rem 4.8rem;
@@ -50,6 +52,7 @@ exports['<Button /> should render small if small size is provided 1'] = `
   border: none;
   border-radius: 0.4rem;
   padding: 0.8rem;
+  cursor: pointer;
   height: 3rem;
   font-size: 1.2rem;
 }
@@ -70,6 +73,7 @@ exports['<Button /> should render with correct initial state 1'] = `
   border: none;
   border-radius: 0.4rem;
   padding: 0.8rem;
+  cursor: pointer;
   height: 4rem;
   font-size: 1.4rem;
   padding: 0.8rem 3.2rem;
