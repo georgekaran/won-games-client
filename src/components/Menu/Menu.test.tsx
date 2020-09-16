@@ -43,4 +43,10 @@ describe('<Menu />', () => {
     expect(screen.getByText(/my account/i)).toBeInTheDocument()
     expect(screen.getByText(/wishlist/i)).toBeInTheDocument()
   })
+
+  test('Should not show RegisterBox if username is not nullish', () => {
+    makeSut({ username: faker.internet.userName() })
+    expect(screen.queryByText(/Log in now/i)).not.toBeInTheDocument()
+    expect(screen.queryByText(/Sign up/i)).not.toBeInTheDocument()
+  })
 })
