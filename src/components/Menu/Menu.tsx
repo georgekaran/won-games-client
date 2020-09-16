@@ -5,8 +5,9 @@ import { ShoppingCart } from '@styled-icons/material-outlined/ShoppingCart'
 import { Close as CloseIcon } from '@styled-icons/material-outlined/Close'
 
 import * as S from './Menu.styles'
-import Logo from '@/components/Logo/Logo'
+import { Logo } from '@/components/Logo'
 import { Button } from '@/components/Button'
+import { MediaMatch } from '@/components/MediaMatch'
 
 export type MenuProps = {
   username?: string
@@ -16,12 +17,23 @@ const Menu = ({ username }: MenuProps) => {
   const [isOpen, setIsOpen] = useState(false)
   return (
     <S.Wrapper>
-      <S.IconWrapper>
-        <MenuIcon aria-label="Open menu" onClick={() => setIsOpen(true)} />
-      </S.IconWrapper>
+      <MediaMatch data-testid="media-menu-icon" lessThan="medium">
+        <S.IconWrapper>
+          <MenuIcon aria-label="Open menu" onClick={() => setIsOpen(true)} />
+        </S.IconWrapper>
+      </MediaMatch>
+
       <S.LogoWrapper>
         <Logo hideOnMobile />
       </S.LogoWrapper>
+
+      <MediaMatch greaterThan="medium">
+        <S.MenuNav>
+          <S.MenuLink href="#">Home</S.MenuLink>
+          <S.MenuLink href="#">Explore</S.MenuLink>
+        </S.MenuNav>
+      </MediaMatch>
+
       <S.MenuGroup>
         <S.IconWrapper>
           <SearchIcon aria-label="Search" />
@@ -29,6 +41,13 @@ const Menu = ({ username }: MenuProps) => {
         <S.IconWrapper>
           <ShoppingCart aria-label="Open shopping cart" />
         </S.IconWrapper>
+        <MediaMatch greaterThan="medium">
+          {!username && (
+            <Button>
+              Sign in
+            </Button>
+          )}
+        </MediaMatch>
       </S.MenuGroup>
 
       <S.MenuFull aria-hidden={!isOpen} isOpen={isOpen}>
