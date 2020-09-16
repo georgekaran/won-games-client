@@ -1,7 +1,7 @@
 import React from 'react'
 import { RenderResult, screen } from '@testing-library/react'
 
-import Heading, { HeadingProps } from './Heading'
+import { Heading, HeadingProps } from '.'
 import { renderWithTheme } from '@/test/helpers'
 import theme from '@/styles/theme'
 

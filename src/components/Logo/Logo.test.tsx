@@ -3,7 +3,7 @@ import { RenderResult, screen } from '@testing-library/react'
 import faker from 'faker'
 import 'jest-styled-components'
 
-import Logo, { LogoProps } from './Logo'
+import { Logo, LogoProps } from '.'
 import { renderWithTheme } from '@/test/helpers'
 import theme from '@/styles/theme'
 

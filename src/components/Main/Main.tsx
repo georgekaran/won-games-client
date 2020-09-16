@@ -1,13 +1,13 @@
 import React from 'react'
 import * as S from './Main.styles'
 
-type Props = {
+export type MainProps = {
   title?: string
 }
 
-const Main: React.FC<Props> = ({
+const Main = ({
   title = 'Next-Boilerplate'
-}: Props) => {
+}: MainProps) => {
   return (
     <S.Wrapper>
       <S.LogoWrapper>
