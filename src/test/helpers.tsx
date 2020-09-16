@@ -11,3 +11,13 @@ export const renderWithTheme = (children: React.ReactNode): RenderResult => {
     </ThemeProvider>
   )
 }
+
+export const resizeWindow = (width: number, height: number): void => {
+  Object.assign(window, {
+    innerWidth: width,
+    innerHeight: height,
+    outerWidth: width,
+    outerHeight: height
+  })
+  window.dispatchEvent(new Event('resize'))
+}

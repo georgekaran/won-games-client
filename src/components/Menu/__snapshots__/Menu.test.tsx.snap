@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports['<Menu /> should render with initial state 1'] = `
-.c2 {
+.c3 {
   display: inline-block;
   vertical-align: middle;
   overflow: hidden;
@@ -20,14 +20,14 @@ exports['<Menu /> should render with initial state 1'] = `
   position: relative;
 }
 
-.c1 {
+.c2 {
   color: #FAFAFA;
   width: 2.4rem;
   height: 2.4rem;
   cursor: pointer;
 }
 
-.c5 {
+.c11 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -36,26 +36,31 @@ exports['<Menu /> should render with initial state 1'] = `
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: end;
   -webkit-justify-content: flex-end;
   -ms-flex-pack: end;
   justify-content: flex-end;
 }
 
-.c5 > div {
+.c11 > div {
   margin-left: 1.6rem;
 }
 
-.c9 {
+.c10 {
   position: relative;
   font-size: 1.6rem;
   margin: 0.3rem 2.4rem 0;
+  color: #FAFAFA;
   -webkit-text-decoration: none;
   text-decoration: none;
   text-align: center;
 }
 
-.c9:hover::after {
+.c10:hover::after {
   content: '';
   position: absolute;
   display: block;
@@ -65,7 +70,7 @@ exports['<Menu /> should render with initial state 1'] = `
   animation: hoverAnimation 0.2s forwards;
 }
 
-.c6 {
+.c13 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -91,7 +96,7 @@ exports['<Menu /> should render with initial state 1'] = `
   opacity: 0;
 }
 
-.c6 > svg {
+.c13 > svg {
   position: absolute;
   top: 0;
   right: 0;
@@ -101,7 +106,7 @@ exports['<Menu /> should render with initial state 1'] = `
   height: 2.4rem;
 }
 
-.c6 .c7 {
+.c13 .c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -122,7 +127,7 @@ exports['<Menu /> should render with initial state 1'] = `
   flex-direction: column;
 }
 
-.c6 .c8 {
+.c13 .c9 {
   color: #030517;
   font-weight: 600;
   font-size: 2rem;
@@ -135,7 +140,7 @@ exports['<Menu /> should render with initial state 1'] = `
   transition: transform 0.3s ease-in-out;
 }
 
-.c6 .c10 {
+.c13 .c14 {
   -webkit-transform: translateY(3rem);
   -ms-transform: translateY(3rem);
   transform: translateY(3rem);
@@ -144,7 +149,7 @@ exports['<Menu /> should render with initial state 1'] = `
   transition: transform 0.3s ease-in-out;
 }
 
-.c11 {
+.c15 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -159,20 +164,20 @@ exports['<Menu /> should render with initial state 1'] = `
   padding: 0 4.8rem 4.8rem;
 }
 
-.c11 > span {
+.c15 > span {
   display: block;
   margin: 0.8rem 0;
   font-size: 1.2rem;
 }
 
-.c13 {
+.c17 {
   -webkit-text-decoration: none;
   text-decoration: none;
   color: #F231A5;
   border-bottom: 0.2rem solid #F231A5;
 }
 
-.c4 {
+.c5 {
   color: #FAFAFA;
   width: 11rem;
   height: 3.3rem;
@@ -185,14 +190,34 @@ exports['<Menu /> should render with initial state 1'] = `
   border-radius: 0.4rem;
   padding: 0.8rem;
   cursor: pointer;
+  height: 4rem;
+  font-size: 1.4rem;
+  padding: 0.8rem 3.2rem;
+}
+
+.c16 {
+  background: linear-gradient(180deg,#ff5f5f 0%,#f062c0 50%);
+  color: #FAFAFA;
+  border: none;
+  border-radius: 0.4rem;
+  padding: 0.8rem;
+  cursor: pointer;
   height: 5rem;
   font-size: 1.6rem;
   padding: 0.8rem 4.8rem;
   width: 100%;
 }
 
+.c1 {
+  display: none;
+}
+
+.c6 {
+  display: none;
+}
+
 @media (max-width:768px) {
-  .c3 {
+  .c4 {
     position: absolute;
     left: 50%;
     -webkit-transform: translateX(-50%);
@@ -201,19 +226,37 @@ exports['<Menu /> should render with initial state 1'] = `
   }
 }
 
+@media (min-width:768px) {
+  .c8 {
+    margin-left: 2.4rem;
+  }
+}
+
 @media (max-width:768px) {
-  .c4 {
+  .c5 {
     width: 5.8rem;
     height: 4.5rem;
   }
 
-  .c4 svg {
+  .c5 svg {
     height: 4.5rem;
     pointer-events: none;
   }
 
-  .c4 .logo-text {
+  .c5 .logo-text {
     display: none;
+  }
+}
+
+@media (max-width:768px) {
+  .c1 {
+    display: block;
+  }
+}
+
+@media (min-width:768px) {
+  .c6 {
+    display: block;
   }
 }
 
@@ -222,30 +265,35 @@ exports['<Menu /> should render with initial state 1'] = `
 >
   <div
     class="c1"
-  >
-    <svg
-      aria-hidden="true"
-      aria-label="Open menu"
-      class="c2"
-      fill="currentColor"
-      focusable="false"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M0 0h24v24H0z"
-        fill="none"
-      />
-      <path
-        d="M3 4h18v2H3V4zm0 7h12v2H3v-2zm0 7h18v2H3v-2z"
-      />
-    </svg>
-  </div>
-  <div
-    class="c3"
+    data-testid="media-menu-icon"
   >
     <div
-      class="c4"
+      class="c2"
+    >
+      <svg
+        aria-hidden="true"
+        aria-label="Open menu"
+        class="c3"
+        fill="currentColor"
+        focusable="false"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 0h24v24H0z"
+          fill="none"
+        />
+        <path
+          d="M3 4h18v2H3V4zm0 7h12v2H3v-2zm0 7h18v2H3v-2z"
+        />
+      </svg>
+    </div>
+  </div>
+  <div
+    class="c4"
+  >
+    <div
+      class="c5"
       color="white"
       data-testid="logo"
     >
@@ -333,15 +381,35 @@ exports['<Menu /> should render with initial state 1'] = `
     </div>
   </div>
   <div
-    class="c5"
+    class="c6"
   >
     <div
-      class="c1"
+      class="c7 c8"
+    >
+      <a
+        class="c9 c10"
+        href="#"
+      >
+        Home
+      </a>
+      <a
+        class="c9 c10"
+        href="#"
+      >
+        Explore
+      </a>
+    </div>
+  </div>
+  <div
+    class="c11"
+  >
+    <div
+      class="c2"
     >
       <svg
         aria-hidden="true"
         aria-label="Search"
-        class="c2"
+        class="c3"
         fill="currentColor"
         focusable="false"
         viewBox="0 0 24 24"
@@ -357,12 +425,12 @@ exports['<Menu /> should render with initial state 1'] = `
       </svg>
     </div>
     <div
-      class="c1"
+      class="c2"
     >
       <svg
         aria-hidden="true"
         aria-label="Open shopping cart"
-        class="c2"
+        class="c3"
         fill="currentColor"
         focusable="false"
         viewBox="0 0 24 24"
@@ -377,15 +445,26 @@ exports['<Menu /> should render with initial state 1'] = `
         />
       </svg>
     </div>
+    <div
+      class="c6"
+    >
+      <button
+        class="c12"
+      >
+        <span>
+          Sign in
+        </span>
+      </button>
+    </div>
   </div>
   <nav
     aria-hidden="true"
-    class="c6"
+    class="c13"
   >
     <svg
       aria-hidden="true"
       aria-label="Close menu"
-      class="c2"
+      class="c3"
       fill="currentColor"
       focusable="false"
       viewBox="0 0 24 24"
@@ -400,26 +479,26 @@ exports['<Menu /> should render with initial state 1'] = `
       />
     </svg>
     <div
-      class="c7 "
+      class="c7 c8"
     >
       <a
-        class="c8 c9"
+        class="c9 c10"
         href="#"
       >
         Home
       </a>
       <a
-        class="c8 c9"
+        class="c9 c10"
         href="#"
       >
         Explore
       </a>
     </div>
     <div
-      class="c10 c11"
+      class="c14 c15"
     >
       <button
-        class="c12"
+        class="c16"
       >
         <span>
           Log in now
@@ -429,7 +508,7 @@ exports['<Menu /> should render with initial state 1'] = `
         or
       </span>
       <a
-        class="c13"
+        class="c17"
         href="#"
         title="Sign up"
       >
