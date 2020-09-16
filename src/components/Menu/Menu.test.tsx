@@ -1,11 +1,12 @@
 import React from 'react'
+import faker from 'faker'
 import { screen, RenderResult, fireEvent } from '@testing-library/react'
 
-import Menu from './Menu'
+import Menu, { MenuProps } from './Menu'
 import { renderWithTheme } from '@/test/helpers'
 
-const makeSut = (): RenderResult => {
-  return renderWithTheme(<Menu />)
+const makeSut = ({ username = '' }: MenuProps = {}): RenderResult => {
+  return renderWithTheme(<Menu username={username} />)
 }
 
 describe('<Menu />', () => {
@@ -35,5 +36,11 @@ describe('<Menu />', () => {
     fireEvent.click(closeMenuIcon)
     expect(menuFull.getAttribute('aria-hidden')).toBe('true')
     expect(menuFull).toHaveStyleRule('opacity', '0')
+  })
+
+  test('Should show My account and wishlist links if username is not nullish', () => {
+    makeSut({ username: faker.internet.userName() })
+    expect(screen.getByText(/my account/i)).toBeInTheDocument()
+    expect(screen.getByText(/wishlist/i)).toBeInTheDocument()
   })
 })
