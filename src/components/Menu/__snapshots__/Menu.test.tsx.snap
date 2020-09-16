@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports['<Menu /> should render with initial state 1'] = `
+exports[`<Menu /> should render with initial state 1`] = `
 .c2 {
   display: inline-block;
   vertical-align: middle;
@@ -47,7 +47,26 @@ exports['<Menu /> should render with initial state 1'] = `
 }
 
 .c6 {
+  position: absolute;
+  background: #FAFAFA;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none;
   opacity: 0;
+}
+
+.c6 > svg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1.6rem;
+  cursor: pointer;
+  width: 2.4rem;
+  height: 2.4rem;
 }
 
 .c4 {
@@ -266,4 +285,4 @@ exports['<Menu /> should render with initial state 1'] = `
     </svg>
   </nav>
 </menu>
-`
+`;
