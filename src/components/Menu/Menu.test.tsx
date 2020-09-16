@@ -2,7 +2,7 @@ import React from 'react'
 import faker from 'faker'
 import { screen, RenderResult, fireEvent } from '@testing-library/react'
 
-import Menu, { MenuProps } from './Menu'
+import { Menu, MenuProps } from '.'
 import { renderWithTheme } from '@/test/helpers'
 
 const makeSut = ({ username = '' }: MenuProps = {}): RenderResult => {
