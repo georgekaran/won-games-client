@@ -3,7 +3,7 @@ import faker from 'faker'
 import { screen, RenderResult, fireEvent } from '@testing-library/react'
 
 import { Menu, MenuProps } from '.'
-import { renderWithTheme, resizeWindow } from '@/test/helpers'
+import { renderWithTheme } from '@/test/helpers'
 
 const makeSut = ({ username = '' }: MenuProps = {}): RenderResult => {
   return renderWithTheme(<Menu username={username} />)
@@ -48,13 +48,5 @@ describe('<Menu />', () => {
     makeSut({ username: faker.internet.userName() })
     expect(screen.queryByText(/Log in now/i)).not.toBeInTheDocument()
     expect(screen.queryByText(/Sign up/i)).not.toBeInTheDocument()
-  })
-
-  test('Should show MenuIcon if screenSize is less than 988px', () => {
-    resizeWindow(987, 500)
-    makeSut({ username: faker.internet.userName() })
-    expect(screen.getByTestId('media-menu-icon')).toHaveStyle({
-      display: 'none'
-    })
   })
 })

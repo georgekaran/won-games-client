@@ -1,7 +1,6 @@
 import React from 'react'
 import { RenderResult, screen } from '@testing-library/react'
 import faker from 'faker'
-import 'jest-styled-components'
 
 import { Logo, LogoProps } from '.'
 import { renderWithTheme } from '@/test/helpers'
