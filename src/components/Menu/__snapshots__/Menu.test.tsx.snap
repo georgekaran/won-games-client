@@ -85,6 +85,8 @@ exports['<Menu /> should render with initial state 1'] = `
   right: 0;
   height: 100vh;
   overflow: hidden;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
   pointer-events: none;
   opacity: 0;
 }
@@ -125,9 +127,24 @@ exports['<Menu /> should render with initial state 1'] = `
   font-weight: 600;
   font-size: 2rem;
   margin-bottom: 2.4rem;
+  -webkit-transform: translateY(3rem);
+  -ms-transform: translateY(3rem);
+  transform: translateY(3rem);
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  -webkit-transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
-.c10 {
+.c6 .c10 {
+  -webkit-transform: translateY(3rem);
+  -ms-transform: translateY(3rem);
+  transform: translateY(3rem);
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  -webkit-transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+}
+
+.c11 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -142,13 +159,13 @@ exports['<Menu /> should render with initial state 1'] = `
   padding: 0 4.8rem 4.8rem;
 }
 
-.c10 > span {
+.c11 > span {
   display: block;
   margin: 0.8rem 0;
   font-size: 1.2rem;
 }
 
-.c12 {
+.c13 {
   -webkit-text-decoration: none;
   text-decoration: none;
   color: #F231A5;
@@ -161,7 +178,7 @@ exports['<Menu /> should render with initial state 1'] = `
   height: 3.3rem;
 }
 
-.c11 {
+.c12 {
   background: linear-gradient(180deg,#ff5f5f 0%,#f062c0 50%);
   color: #FAFAFA;
   border: none;
@@ -399,10 +416,10 @@ exports['<Menu /> should render with initial state 1'] = `
       </a>
     </div>
     <div
-      class="c10"
+      class="c10 c11"
     >
       <button
-        class="c11"
+        class="c12"
       >
         <span>
           Log in now
@@ -412,7 +429,7 @@ exports['<Menu /> should render with initial state 1'] = `
         or
       </span>
       <a
-        class="c12"
+        class="c13"
         href="#"
         title="Sign up"
       >
