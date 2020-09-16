@@ -11,17 +11,17 @@ export type MenuProps = {}
 const Menu = () => (
   <S.Wrapper>
     <S.IconWrapper>
-      <MenuIcon />
+      <MenuIcon aria-label="Open menu" />
     </S.IconWrapper>
     <S.LogoWrapper>
       <Logo hideOnMobile />
     </S.LogoWrapper>
     <S.MenuGroup>
       <S.IconWrapper>
-        <SearchIcon />
+        <SearchIcon aria-label="Search" />
       </S.IconWrapper>
       <S.IconWrapper>
-        <ShoppingCart />
+        <ShoppingCart aria-label="Open shopping cart" />
       </S.IconWrapper>
     </S.MenuGroup>
   </S.Wrapper>
