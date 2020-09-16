@@ -6,6 +6,7 @@ import { Close as CloseIcon } from '@styled-icons/material-outlined/Close'
 
 import * as S from './Menu.styles'
 import Logo from '@/components/Logo/Logo'
+import { Button } from '@/components/Button'
 
 export type MenuProps = {}
 
@@ -34,6 +35,16 @@ const Menu = () => {
           <S.MenuLink href="#">Home</S.MenuLink>
           <S.MenuLink href="#">Explore</S.MenuLink>
         </S.MenuNav>
+
+        <S.RegisterBox>
+          <Button fullWidth size="large">
+            Log in now
+          </Button>
+          <span>or</span>
+          <S.CreateAccount href="#" title="Sign up">
+            Sign up
+          </S.CreateAccount>
+        </S.RegisterBox>
       </S.MenuFull>
     </S.Wrapper>
   )

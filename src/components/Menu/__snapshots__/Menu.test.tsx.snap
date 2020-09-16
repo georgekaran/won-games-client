@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Menu /> should render with initial state 1`] = `
+exports['<Menu /> should render with initial state 1'] = `
 .c2 {
   display: inline-block;
   vertical-align: middle;
@@ -127,10 +127,51 @@ exports[`<Menu /> should render with initial state 1`] = `
   margin-bottom: 2.4rem;
 }
 
+.c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0 4.8rem 4.8rem;
+}
+
+.c10 > span {
+  display: block;
+  margin: 0.8rem 0;
+  font-size: 1.2rem;
+}
+
+.c12 {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: #F231A5;
+  border-bottom: 0.2rem solid #F231A5;
+}
+
 .c4 {
   color: #FAFAFA;
   width: 11rem;
   height: 3.3rem;
+}
+
+.c11 {
+  background: linear-gradient(180deg,#ff5f5f 0%,#f062c0 50%);
+  color: #FAFAFA;
+  border: none;
+  border-radius: 0.4rem;
+  padding: 0.8rem;
+  cursor: pointer;
+  height: 5rem;
+  font-size: 1.6rem;
+  padding: 0.8rem 4.8rem;
+  width: 100%;
 }
 
 @media (max-width:768px) {
@@ -357,6 +398,27 @@ exports[`<Menu /> should render with initial state 1`] = `
         Explore
       </a>
     </div>
+    <div
+      class="c10"
+    >
+      <button
+        class="c11"
+      >
+        <span>
+          Log in now
+        </span>
+      </button>
+      <span>
+        or
+      </span>
+      <a
+        class="c12"
+        href="#"
+        title="Sign up"
+      >
+        Sign up
+      </a>
+    </div>
   </nav>
 </menu>
-`;
+`
