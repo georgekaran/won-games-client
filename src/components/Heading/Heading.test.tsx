@@ -5,13 +5,15 @@ import { Heading, HeadingProps } from '.'
 import { renderWithTheme } from '@/test/helpers'
 import theme from '@/styles/theme'
 
-const makeSut = ({ children, color = 'white', lineLeft = false, lineBottom = false }: HeadingProps): RenderResult => {
-  return renderWithTheme(<Heading color={color} lineLeft={lineLeft} lineBottom={lineBottom}>{children}</Heading>)
+type SutProps = Omit<HeadingProps, 'children'>
+
+const makeSut = ({ color = 'white', lineLeft = false, lineBottom = false }: SutProps): RenderResult => {
+  return renderWithTheme(<Heading color={color} lineLeft={lineLeft} lineBottom={lineBottom}>Random Heading</Heading>)
 }
 
 describe('<Heading />', () => {
   test('should render with initial state', () => {
-    const { container } = makeSut({ children: 'Random Heading' })
+    const { container } = makeSut({})
     const heading = screen.getByRole('heading', { name: /Random Heading/ })
     expect(heading).toBeInTheDocument()
     expect(heading).toHaveStyleRule('color', theme.colors.white)
@@ -21,19 +23,19 @@ describe('<Heading />', () => {
   })
 
   test('should render Heading with black text if color black is provided', () => {
-    makeSut({ children: 'Random Heading', color: 'black' })
+    makeSut({ color: 'black' })
     expect(screen.getByRole('heading', { name: /Random Heading/ })).toHaveStyleRule('color', theme.colors.black)
   })
 
   test('should present a line in the left if lineLeft is true', () => {
-    makeSut({ children: 'Random Heading', lineLeft: true })
+    makeSut({ lineLeft: true })
     const heading = screen.getByRole('heading', { name: /Random Heading/ })
     expect(heading).toHaveStyleRule('padding-left', theme.spacings.xxsmall)
     expect(heading).toHaveStyleRule('border-left', `0.7rem solid ${theme.colors.secondary}`)
   })
 
   test('should present a line in the bottom if lineBottom is true', () => {
-    makeSut({ children: 'Random Heading', lineBottom: true })
+    makeSut({ lineBottom: true })
     const heading = screen.getByRole('heading', { name: /Random Heading/ })
     expect(heading).toHaveStyleRule('margin-bottom', theme.spacings.medium)
     expect(heading).toHaveStyleRule(
