@@ -21,11 +21,21 @@ const wrapperModifiers = {
       background-color: ${theme.colors.primary};
       height: 0.7rem;
     }
+  `,
+  small: (theme: DefaultTheme) => css`
+    font-size: ${theme.font.sizes.medium};
+  `,
+  medium: (theme: DefaultTheme) => css`
+    font-size: ${theme.font.sizes.xlarge};
+
+    ${media.greaterThan('medium')`
+      font-size: ${theme.font.sizes.xxlarge};
+    `}
   `
 }
 
 export const Wrapper = styled.h2<HeadingProps>`
-  ${({ theme, color, lineLeft, lineBottom }) => css`
+  ${({ theme, color, lineLeft, lineBottom, size }) => css`
     font-size: ${theme.font.sizes.xlarge};
     color: ${theme.colors[color!]};
 
@@ -35,5 +45,6 @@ export const Wrapper = styled.h2<HeadingProps>`
 
     ${lineLeft && wrapperModifiers.lineLeft(theme)}
     ${lineBottom && wrapperModifiers.lineBottom(theme)}
+    ${!!size && wrapperModifiers[size](theme)}
   `}
 `
