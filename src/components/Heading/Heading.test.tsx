@@ -7,8 +7,15 @@ import theme from '@/styles/theme'
 
 type SutProps = Omit<HeadingProps, 'children'>
 
-const makeSut = ({ color = 'white', lineLeft = false, lineBottom = false }: SutProps): RenderResult => {
-  return renderWithTheme(<Heading color={color} lineLeft={lineLeft} lineBottom={lineBottom}>Random Heading</Heading>)
+const makeSut = ({ color = 'white', lineLeft = false, lineBottom = false, size = 'medium' }: SutProps): RenderResult => {
+  return renderWithTheme(
+    <Heading
+      color={color}
+      lineLeft={lineLeft}
+      lineBottom={lineBottom}
+      size={size}>
+      Random Heading
+    </Heading>)
 }
 
 describe('<Heading />', () => {
@@ -44,5 +51,13 @@ describe('<Heading />', () => {
         modifier: '::after'
       }
     )
+  })
+
+  test('should render with small size if size prop is provided', () => {
+    makeSut({ size: 'small' })
+    const heading = screen.getByRole('heading', { name: /Random Heading/ })
+    expect(heading).toHaveStyle({
+      'font-size': '1.6rem'
+    })
   })
 })
