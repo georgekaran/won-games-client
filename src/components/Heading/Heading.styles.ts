@@ -24,6 +24,10 @@ const wrapperModifiers = {
   `,
   small: (theme: DefaultTheme) => css`
     font-size: ${theme.font.sizes.medium};
+
+    &::after {
+      width: 3rem;
+    }
   `,
   medium: (theme: DefaultTheme) => css`
     font-size: ${theme.font.sizes.xlarge};
