@@ -59,5 +59,12 @@ describe('<Heading />', () => {
     expect(heading).toHaveStyle({
       'font-size': '1.6rem'
     })
+
+    expect(heading).toHaveStyleRule(
+      'width',
+      '3rem', {
+        modifier: '::after'
+      }
+    )
   })
 })

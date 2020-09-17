@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Heading /> should render with initial state 1`] = `
+exports['<Heading /> should render with initial state 1'] = `
 .c0 {
   color: #FAFAFA;
   font-size: 2rem;
@@ -18,4 +18,4 @@ exports[`<Heading /> should render with initial state 1`] = `
 >
   Random Heading
 </h2>
-`;
+`
