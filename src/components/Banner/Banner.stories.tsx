@@ -11,6 +11,9 @@ export default {
     subtitle: '<p>Play the Cyberpunk 2077 now!</p>',
     buttonLabel: 'Buy now',
     buttonLink: '/games/cyberpunk-2077'
+  },
+  parameters: {
+    layout: 'fullscreen'
   }
 } as Meta
 

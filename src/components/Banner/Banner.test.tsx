@@ -14,7 +14,7 @@ const bannerData = {
 }
 
 describe('<Banner />', () => {
-  it('should render with initial state correctly', () => {
+  test('should render with initial state correctly', () => {
     renderWithTheme(<Banner {...bannerData} />)
     expect(screen.getByRole('heading', { name: bannerData.title })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: bannerData.subtitle })).toBeInTheDocument()
