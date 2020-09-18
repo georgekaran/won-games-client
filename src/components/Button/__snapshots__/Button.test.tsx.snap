@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports['<Button /> should render with correct initial state 1'] = `
+exports[`<Button /> should render with correct initial state 1`] = `
 .c0 {
   background: linear-gradient(180deg,#ff5f5f 0%,#f062c0 50%);
   color: #FAFAFA;
@@ -13,6 +13,10 @@ exports['<Button /> should render with correct initial state 1'] = `
   padding: 0.8rem 3.2rem;
 }
 
+.c0:hover {
+  background: linear-gradient(180deg,#e35565 0%,#d958a6 50%);
+}
+
 <button
   class="c0"
 >
@@ -20,4 +24,4 @@ exports['<Button /> should render with correct initial state 1'] = `
     Button
   </span>
 </button>
-`
+`;
