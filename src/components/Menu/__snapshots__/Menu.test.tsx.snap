@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Menu /> should render with initial state 1`] = `
+exports['<Menu /> should render with initial state 1'] = `
 .c3 {
   display: inline-block;
   vertical-align: middle;
@@ -525,4 +525,4 @@ exports[`<Menu /> should render with initial state 1`] = `
     </div>
   </nav>
 </menu>
-`;
+`

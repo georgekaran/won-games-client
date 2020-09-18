@@ -2,14 +2,14 @@ import React from 'react'
 import { RenderResult, screen } from '@testing-library/react'
 import { AddShoppingCart } from '@styled-icons/material-outlined/AddShoppingCart'
 
-import Button, { ButtonProps } from './Button'
+import Button, { ButtonProps, ButtonTypes } from './Button'
 import { renderWithTheme } from '@/test/helpers'
 import theme from '@/styles/theme'
 
-type SutProps = Pick<ButtonProps, 'size' | 'fullWidth' | 'icon'>
+type SutProps = Omit<ButtonProps, 'children'> & ButtonTypes
 
-const makeSut = ({ size = 'medium', fullWidth = false, icon = null }: SutProps = {}): RenderResult => {
-  return renderWithTheme(<Button size={size} fullWidth={fullWidth} icon={icon}>Button</Button>)
+const makeSut = ({ size = 'medium', fullWidth = false, icon = null, as = 'button', ...props }: SutProps = {}): RenderResult => {
+  return renderWithTheme(<Button size={size} fullWidth={fullWidth} icon={icon} as={as} {...props}>Button</Button>)
 }
 
 describe('<Button />', () => {
@@ -49,5 +49,11 @@ describe('<Button />', () => {
     const icon = screen.getByTestId('icon')
     expect(icon).toBeInTheDocument()
     expect(screen.getByText(/Button/)).toBeInTheDocument()
+  })
+
+  test('should render as anchor if prop \'as\' is a', () => {
+    makeSut({ as: 'a', href: '/link' })
+    const buttonAsLink = screen.getByRole('link', { name: /Button/i })
+    expect(buttonAsLink).toBeInTheDocument()
   })
 })
