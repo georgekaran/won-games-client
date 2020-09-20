@@ -16,4 +16,11 @@ describe('<Ribbon />', () => {
     expect(container.firstChild).toMatchSnapshot()
     expect(screen.getByText(/best seller/i)).toBeInTheDocument()
   })
+
+  it('should render with primary color', () => {
+    makeSut({})
+    expect(screen.getByText(/best seller/i)).toHaveStyle({
+      backgroundColor: '#F231A5'
+    })
+  })
 })

@@ -1,8 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports['<Ribbon /> should render with initial state 1'] = `
+.c0 {
+  background-color: #F231A5;
+}
+
 <div
-  class=""
+  class="c0"
+  color="primary"
 >
   Best Seller
 </div>
