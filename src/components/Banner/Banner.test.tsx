@@ -12,7 +12,9 @@ const makeSut = ({
   title = mockBannerData.title,
   subtitle = mockBannerData.subtitle,
   buttonLabel = mockBannerData.buttonLabel,
-  buttonLink = mockBannerData.buttonLink
+  buttonLink = mockBannerData.buttonLink,
+  ribbon = '',
+  ...props
 }: SutProps): RenderResult => {
   return renderWithTheme(
     <Banner
@@ -21,6 +23,8 @@ const makeSut = ({
       subtitle={subtitle}
       buttonLabel={buttonLabel}
       buttonLink={buttonLink}
+      ribbon={ribbon}
+      {...props}
     />)
 }
 
@@ -32,5 +36,22 @@ describe('<Banner />', () => {
     expect(screen.getByRole('img')).toHaveAttribute('src', mockBannerData.img)
     expect(screen.getByRole('link')).toHaveTextContent(mockBannerData.buttonLabel)
     expect(screen.getByRole('link')).toHaveAttribute('href', mockBannerData.buttonLink)
+  })
+
+  test('should render a Ribbon', () => {
+    makeSut({
+      ribbon: 'My Ribbon',
+      ribbonSize: 'small',
+      ribbonColor: 'secondary'
+    })
+
+    const ribbon = screen.getByText(/My Ribbon/i)
+
+    expect(ribbon).toBeInTheDocument()
+    expect(ribbon).toHaveStyle({ backgroundColor: '#3CD3C1' })
+    expect(ribbon).toHaveStyle({
+      height: '2.6rem',
+      fontSize: '1.2rem'
+    })
   })
 })
