@@ -38,4 +38,12 @@ describe('<Ribbon />', () => {
       fontSize: '1.4rem'
     })
   })
+
+  it('should render with the small size if prop is provided', () => {
+    makeSut({ size: 'small' })
+    expect(screen.getByText(/best seller/i)).toHaveStyle({
+      height: '2.6rem',
+      fontSize: '1.2rem'
+    })
+  })
 })
