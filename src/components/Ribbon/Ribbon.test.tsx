@@ -1,12 +1,18 @@
 import React from 'react'
-import { screen } from '@testing-library/react'
+import { RenderResult, screen } from '@testing-library/react'
 
-import Ribbon from './Ribbon'
+import { Ribbon, RibbonProps } from '.'
 import { renderWithTheme } from '@/test/helpers'
+
+type SutProps = Partial<RibbonProps>
+
+const makeSut = ({ children = 'Best Seller' }: SutProps): RenderResult => {
+  return renderWithTheme(<Ribbon>{children}</Ribbon>)
+}
 
 describe('<Ribbon />', () => {
   it('should render with initial state', () => {
-    const { container } = renderWithTheme(<Ribbon>Best Seller</Ribbon>)
+    const { container } = makeSut({})
     expect(container.firstChild).toMatchSnapshot()
     expect(screen.getByText(/best seller/i)).toBeInTheDocument()
   })
