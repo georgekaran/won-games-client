@@ -6,8 +6,8 @@ import { renderWithTheme } from '@/test/helpers'
 
 type SutProps = Partial<RibbonProps>
 
-const makeSut = ({ children = 'Best Seller' }: SutProps): RenderResult => {
-  return renderWithTheme(<Ribbon>{children}</Ribbon>)
+const makeSut = ({ children = 'Best Seller', color = 'primary' }: SutProps): RenderResult => {
+  return renderWithTheme(<Ribbon color={color}>{children}</Ribbon>)
 }
 
 describe('<Ribbon />', () => {
@@ -21,6 +21,13 @@ describe('<Ribbon />', () => {
     makeSut({})
     expect(screen.getByText(/best seller/i)).toHaveStyle({
       backgroundColor: '#F231A5'
+    })
+  })
+
+  it('should render with secondary color', () => {
+    makeSut({ color: 'secondary' })
+    expect(screen.getByText(/best seller/i)).toHaveStyle({
+      backgroundColor: '#3CD3C1'
     })
   })
 })
