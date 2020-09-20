@@ -1,2 +1,2 @@
 export { default as Ribbon } from './Ribbon'
-export type { RibbonProps, RibbonColors } from './Ribbon'
+export type { RibbonProps, RibbonColors, RibbonSizes } from './Ribbon'
