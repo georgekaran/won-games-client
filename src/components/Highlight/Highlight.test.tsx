@@ -1,16 +1,23 @@
 import React from 'react'
-import { screen } from '@testing-library/react'
+import { RenderResult, screen } from '@testing-library/react'
 
 import { renderWithTheme } from '@/test/helpers'
-import Highlight from './Highlight'
+import { Highlight, HighlightProps } from '.'
+
+type SutProps = Partial<HighlightProps>
+
+const makeSut = ({
+  title = 'Heading 1',
+  subtitle = 'Heading 2'
+}: SutProps): RenderResult => {
+  return renderWithTheme(<Highlight title={title} subtitle={subtitle} />)
+}
 
 describe('<Highlight />', () => {
   it('should render with initial state', () => {
-    const { container } = renderWithTheme(<Highlight title="Heading 1" subtitle="Heading 2" />)
+    makeSut({})
 
     expect(screen.getByRole('heading', { name: /heading 1/i })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /heading 2/i })).toBeInTheDocument()
-
-    expect(container.firstChild).toMatchSnapshot()
   })
 })
