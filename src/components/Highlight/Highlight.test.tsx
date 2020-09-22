@@ -45,4 +45,10 @@ describe('<Highlight />', () => {
 
     expect(screen.getByRole('img', { name: /heading 1/i })).toHaveAttribute('src', '/any_float_image.png')
   })
+
+  it('should render align right by default', () => {
+    const { container } = makeSut({})
+
+    expect(container.firstChild).toHaveStyleRule('grid-template-areas', "'floatImage content'")
+  })
 })
