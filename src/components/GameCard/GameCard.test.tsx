@@ -38,4 +38,10 @@ describe('<GameCard />', () => {
       textDecoration: 'line-through'
     })
   })
+
+  it('should render a filled Favorite icon when favorite is true', () => {
+    makeSut({ favorite: true })
+
+    expect(screen.getByLabelText(/remove from wishlist/i)).toBeInTheDocument()
+  })
 })
