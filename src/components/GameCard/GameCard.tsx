@@ -11,9 +11,10 @@ export type GameCardProps = {
   price: string
   promotionalPrice?: string
   favorite?: boolean
+  onFav?: () => void
 }
 
-const GameCard = ({ title, developer, img, price, promotionalPrice, favorite = false }: GameCardProps) => (
+const GameCard = ({ title, developer, img, price, promotionalPrice, favorite = false, onFav }: GameCardProps) => (
   <S.Wrapper>
     <S.ImageBox>
       <img src={img} alt={title} />
@@ -23,7 +24,7 @@ const GameCard = ({ title, developer, img, price, promotionalPrice, favorite = f
         <S.Title>{title}</S.Title>
         <S.Developer>{developer}</S.Developer>
       </S.Info>
-      <S.FavButton role="button">
+      <S.FavButton role="button" onClick={onFav}>
         {favorite ? <Favorite aria-label="Remove from wishlist"/> : <FavoriteBorder aria-label="Add to wishlist" />}
       </S.FavButton>
       <S.BuyBox>
