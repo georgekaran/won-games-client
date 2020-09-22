@@ -26,11 +26,12 @@ const makeSut = ({
 
 describe('<Highlight />', () => {
   it('should render with initial state', () => {
-    makeSut({})
+    const { container } = makeSut({})
 
     expect(screen.getByRole('heading', { name: /heading 1/i })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /heading 2/i })).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /buy now/i })).toBeInTheDocument()
+    expect(container.firstChild).toMatchSnapshot()
   })
 
   it('should render background image', () => {
