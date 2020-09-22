@@ -1,13 +1,18 @@
 import React from 'react'
-import { screen } from '@testing-library/react'
+import { screen, RenderResult } from '@testing-library/react'
 
-import GameCard from './GameCard'
+import { GameCard, GameCardProps } from '.'
 import { renderWithTheme } from '@/test/helpers'
+
+type SutProps = Partial<GameCardProps>
+
+const makeSut = (props: SutProps = {}): RenderResult => {
+  return renderWithTheme(<GameCard title="any_title" developer="any_developer" img="/any_image.jpg" price="R$ 100,00" {...props} />)
+}
 
 describe('<GameCard />', () => {
   it('should render with initial state', () => {
-    renderWithTheme(<GameCard title="any_title" developer="any_developer" img="/any_image.jpg" price="R$ 100,00" />)
-
+    makeSut()
     expect(screen.getByRole('heading', { name: /any_title/i })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /any_developer/i })).toBeInTheDocument()
     expect(screen.getByRole('img')).toHaveAttribute('src', '/any_image.jpg')
