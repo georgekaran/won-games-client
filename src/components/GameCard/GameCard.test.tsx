@@ -1,5 +1,5 @@
 import React from 'react'
-import { screen, RenderResult } from '@testing-library/react'
+import { screen, RenderResult, fireEvent } from '@testing-library/react'
 
 import { GameCard, GameCardProps } from '.'
 import { renderWithTheme } from '@/test/helpers'
@@ -43,5 +43,14 @@ describe('<GameCard />', () => {
     makeSut({ favorite: true })
 
     expect(screen.getByLabelText(/remove from wishlist/i)).toBeInTheDocument()
+  })
+
+  it('should call onFav method when favorite is clicked', () => {
+    const onFavSpy = jest.fn()
+    makeSut({ onFav: onFavSpy })
+
+    fireEvent.click(screen.getByLabelText(/add to wishlist/i))
+
+    expect(onFavSpy).toHaveBeenCalledTimes(1)
   })
 })
