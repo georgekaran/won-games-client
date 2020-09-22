@@ -35,3 +35,6 @@ yarn-error.log*
 
 # storybook-static
 storybook-static
+
+#VScode
+.vscode
