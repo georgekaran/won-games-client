@@ -3,6 +3,7 @@ import { screen, RenderResult } from '@testing-library/react'
 
 import { GameCard, GameCardProps } from '.'
 import { renderWithTheme } from '@/test/helpers'
+import theme from '@/styles/theme'
 
 type SutProps = Partial<GameCardProps>
 
@@ -17,5 +18,14 @@ describe('<GameCard />', () => {
     expect(screen.getByRole('heading', { name: /any_developer/i })).toBeInTheDocument()
     expect(screen.getByRole('img')).toHaveAttribute('src', '/any_image.jpg')
     expect(screen.getByText('R$ 100,00')).toBeInTheDocument()
+  })
+
+  it('should render price in label', () => {
+    makeSut()
+
+    const price = screen.getByText('R$ 100,00')
+
+    expect(price).not.toHaveStyle({ textDecoration: 'line-through' })
+    expect(price).toHaveStyle({ backgroundColor: theme.colors.secondary })
   })
 })
