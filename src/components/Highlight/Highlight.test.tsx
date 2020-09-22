@@ -11,14 +11,16 @@ const makeSut = ({
   subtitle = 'Heading 2',
   buttonLabel = 'Buy now',
   buttonLink = '/any_url',
-  backgroundImage = '/img/any_image.png'
+  backgroundImage = '/img/any_image.png',
+  ...props
 }: SutProps): RenderResult => {
   return renderWithTheme(<Highlight
     title={title}
     subtitle={subtitle}
     buttonLabel={buttonLabel}
     buttonLink={buttonLink}
-    backgroundImage={backgroundImage} />)
+    backgroundImage={backgroundImage}
+    {...props} />)
 }
 
 describe('<Highlight />', () => {
@@ -36,5 +38,11 @@ describe('<Highlight />', () => {
     expect(container.firstChild).toHaveStyle({
       backgroundImage: 'url(/img/any_image.png)'
     })
+  })
+
+  it('should render float image', () => {
+    makeSut({ floatImage: '/any_float_image.png' })
+
+    expect(screen.getByRole('img', { name: /heading 1/i })).toHaveAttribute('src', '/any_float_image.png')
   })
 })
