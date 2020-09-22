@@ -10,7 +10,8 @@ export default {
     title: 'Population Zero',
     developer: 'Rockstar Games',
     img: 'https://steamcdn-a.akamaihd.net/steam/apps/1239430/header.jpg',
-    price: 'R$ 235,00'
+    price: 'R$ 235,00',
+    promotionalPrice: 'R$ 210,00'
   }
 } as Meta
 
