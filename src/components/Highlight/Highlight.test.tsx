@@ -10,9 +10,15 @@ const makeSut = ({
   title = 'Heading 1',
   subtitle = 'Heading 2',
   buttonLabel = 'Buy now',
-  buttonLink = '/any_url'
+  buttonLink = '/any_url',
+  backgroundImage = '/img/any_image.png'
 }: SutProps): RenderResult => {
-  return renderWithTheme(<Highlight title={title} subtitle={subtitle} buttonLabel={buttonLabel} buttonLink={buttonLink} />)
+  return renderWithTheme(<Highlight
+    title={title}
+    subtitle={subtitle}
+    buttonLabel={buttonLabel}
+    buttonLink={buttonLink}
+    backgroundImage={backgroundImage} />)
 }
 
 describe('<Highlight />', () => {
@@ -22,5 +28,13 @@ describe('<Highlight />', () => {
     expect(screen.getByRole('heading', { name: /heading 1/i })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /heading 2/i })).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /buy now/i })).toBeInTheDocument()
+  })
+
+  it('should render background image', () => {
+    const { container } = makeSut({})
+
+    expect(container.firstChild).toHaveStyle({
+      backgroundImage: 'url(/img/any_image.png)'
+    })
   })
 })
