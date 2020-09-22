@@ -3,6 +3,7 @@ import { RenderResult, screen } from '@testing-library/react'
 
 import { renderWithTheme } from '@/test/helpers'
 import { Highlight, HighlightProps } from '.'
+import * as S from './Highlight.styles'
 
 type SutProps = Partial<HighlightProps>
 
@@ -50,5 +51,13 @@ describe('<Highlight />', () => {
     const { container } = makeSut({})
 
     expect(container.firstChild).toHaveStyleRule('grid-template-areas', "'floatImage content'")
+    expect(container.firstChild).toHaveStyleRule('text-align', 'right', { modifier: `${S.Content}` })
+  })
+
+  it('should render align left if prop is provided', () => {
+    const { container } = makeSut({ alignment: 'left' })
+
+    expect(container.firstChild).toHaveStyleRule('grid-template-areas', "'content floatImage'")
+    expect(container.firstChild).toHaveStyleRule('text-align', 'left', { modifier: `${S.Content}` })
   })
 })
