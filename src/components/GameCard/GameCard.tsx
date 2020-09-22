@@ -1,5 +1,5 @@
 import React from 'react'
-import { FavoriteBorder, AddShoppingCart } from '@styled-icons/material-outlined'
+import { Favorite, FavoriteBorder, AddShoppingCart } from '@styled-icons/material-outlined'
 
 import * as S from './GameCard.styles'
 import { Button } from '@/components/Button'
@@ -10,9 +10,10 @@ export type GameCardProps = {
   img: string
   price: string
   promotionalPrice?: string
+  favorite?: boolean
 }
 
-const GameCard = ({ title, developer, img, price, promotionalPrice }: GameCardProps) => (
+const GameCard = ({ title, developer, img, price, promotionalPrice, favorite = false }: GameCardProps) => (
   <S.Wrapper>
     <S.ImageBox>
       <img src={img} alt={title} />
@@ -23,7 +24,7 @@ const GameCard = ({ title, developer, img, price, promotionalPrice }: GameCardPr
         <S.Developer>{developer}</S.Developer>
       </S.Info>
       <S.FavButton role="button">
-        <FavoriteBorder aria-label="Add to wishlist" />
+        {favorite ? <Favorite aria-label="Remove from wishlist"/> : <FavoriteBorder aria-label="Add to wishlist" />}
       </S.FavButton>
       <S.BuyBox>
         {!!promotionalPrice && <S.Price isPromotional>{price}</S.Price>}
