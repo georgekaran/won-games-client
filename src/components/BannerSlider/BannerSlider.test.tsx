@@ -39,4 +39,9 @@ describe('<BannerSlider />', () => {
     expect(screen.getByRole('heading', { name: /cyberpunk 2077/i, hidden: false })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /Red Dead Redemption 2/i, hidden: true })).toBeInTheDocument()
   })
+
+  it('should render with the dots', () => {
+    const { container } = renderWithTheme(<BannerSlider items={items} />)
+    expect(container.querySelector('.slick-dots')).toBeInTheDocument()
+  })
 })
