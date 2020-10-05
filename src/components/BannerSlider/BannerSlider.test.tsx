@@ -4,6 +4,7 @@ import React from 'react'
 import { BannerSlider } from '.'
 import { BannerProps } from '@/components/Banner/Banner'
 import { renderWithTheme } from '@/test/helpers'
+import { RenderResult } from '@testing-library/react'
 
 const items: BannerProps[] = [
   {
@@ -22,9 +23,11 @@ const items: BannerProps[] = [
   }
 ]
 
+const makeSut = (): RenderResult => renderWithTheme(<BannerSlider items={items} />)
+
 describe('<BannerSlider />', () => {
   it('should render vertical slider', () => {
-    const { container } = renderWithTheme(<BannerSlider items={items} />)
+    const { container } = makeSut()
     expect(container.querySelector('.slick-vertical')).toBeInTheDocument()
   })
 })
