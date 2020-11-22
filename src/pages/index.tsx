@@ -1,11 +1,9 @@
-import React from 'react'
+import { Home } from '@/templates/Home'
 
-import Main from '@/components/Main/Main'
-
-const Home: React.FC = () => {
+const Index = () => {
   return (
-    <Main />
+    <Home />
   )
 }
 
-export default Home
+export default Index
