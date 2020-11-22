@@ -10,4 +10,12 @@ describe('<Home />', () => {
     expect(screen.getByLabelText(/open menu/i)).toBeInTheDocument()
     expect(screen.getByText(/follow us/i)).toBeInTheDocument()
   })
+
+  it('should heading sections', () => {
+    renderWithTheme(<Home />)
+    expect(screen.getByRole('heading', { name: /News/i })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /Most Popular/i })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /Upcomming/i })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /Free Games/i })).toBeInTheDocument()
+  })
 })
