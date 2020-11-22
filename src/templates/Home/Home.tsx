@@ -1,12 +1,21 @@
 import React from 'react'
-import * as S from './Home.styles'
+
+import { Container } from '@/components/Container'
+import { Footer } from '@/components/Footer'
+import { Menu } from '@/components/Menu'
 
 export type HomeProps = {}
 
 const Home = () => (
-  <S.Wrapper>
-    <h1>Home</h1>
-  </S.Wrapper>
+  <section>
+    <Container>
+      <Menu />
+    </Container>
+
+    <Container>
+      <Footer />
+    </Container>
+  </section>
 )
 
 export default Home
