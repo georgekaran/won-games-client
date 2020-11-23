@@ -1,2 +1,12 @@
-export { default as {{pascalCase name}} } from './{{pascalCase name}}'
-export type { {{pascalCase name}}Props } from './{{pascalCase name}}'
+import React from 'react'
+import * as S from './styles'
+
+export type {{pascalCase name}}Props = {}
+
+const {{pascalCase name}} = () => (
+  <S.Wrapper>
+    <h1>{{pascalCase name}}</h1>
+  </S.Wrapper>
+)
+
+export default {{pascalCase name}}
