@@ -1,2 +1,21 @@
-export { default as Slider } from './Slider'
-export type { SliderProps, SliderSettings } from './Slider'
+import React from 'react'
+import SlickSlider, { Settings } from 'react-slick'
+
+import * as S from './styles'
+
+export type SliderSettings = Settings
+
+export type SliderProps = {
+  children: React.ReactNode
+  settings: SliderSettings
+}
+
+const Slider = ({ children, settings }: SliderProps) => (
+  <S.Wrapper>
+    <SlickSlider {...settings}>
+      {children}
+    </SlickSlider>
+  </S.Wrapper>
+)
+
+export default Slider

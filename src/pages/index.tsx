@@ -1,4 +1,4 @@
-import { Home } from '@/templates/Home'
+import Home from '@/templates/Home'
 
 const Index = () => {
   return (
