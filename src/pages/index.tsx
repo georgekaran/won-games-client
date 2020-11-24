@@ -16,9 +16,9 @@ export function getServerSideProps () {
       newGamesSlider: gameCardSliderMock,
       mostPopularHighlight: highlightMock,
       mostPopularGames: gameCardSliderMock,
-      upcomingGames: gameCardSliderMock,
-      upcomingGamesHighlight: highlightMock,
-      upcomingMoreGames: gameCardSliderMock,
+      upcommingGames: gameCardSliderMock,
+      upcommingGamesHighlight: highlightMock,
+      upcommingMoreGames: gameCardSliderMock,
       freeGames: gameCardSliderMock,
       freeHighlight: highlightMock
     }
