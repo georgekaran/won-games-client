@@ -1,7 +1,7 @@
 import React from 'react'
 import { Story, Meta } from '@storybook/react/types-6-0'
 
-import { GameCard, GameCardProps } from '.'
+import GameCard, { GameCardProps } from '.'
 
 export default {
   title: 'GameCard',
