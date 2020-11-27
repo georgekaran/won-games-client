@@ -40,7 +40,7 @@
     "@types/styled-components": "^5.1.4",
     "@typescript-eslint/eslint-plugin": "^4.8.1",
     "@typescript-eslint/parser": "^4.8.2",
-    "babel-loader": "^8.2.1",
+    "babel-loader": "^8.2.2",
     "core-js": "^3.6.5",
     "eslint": "^7.14.0",
     "eslint-config-standard": "^16.0.2",
