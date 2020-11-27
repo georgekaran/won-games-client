@@ -16,7 +16,7 @@
     "build-storybook": "build-storybook -s ./public"
   },
   "dependencies": {
-    "next": "10.0.2",
+    "next": "10.0.3",
     "next-pwa": "^3.1.5",
     "polished": "^4.0.5",
     "react": "16.14.0",
