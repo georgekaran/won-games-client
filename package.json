@@ -27,7 +27,7 @@
     "styled-media-query": "^2.1.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.10",
+    "@babel/core": "^7.12.13",
     "@storybook/addon-essentials": "^6.1.14",
     "@storybook/react": "^6.1.14",
     "@testing-library/jest-dom": "^5.11.9",
