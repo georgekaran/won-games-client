@@ -30,7 +30,7 @@
     "@babel/core": "^7.13.13",
     "@storybook/addon-essentials": "^6.1.19",
     "@storybook/react": "^6.1.21",
-    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.5",
     "@types/faker": "^5.1.7",
     "@types/jest": "^26.0.20",
